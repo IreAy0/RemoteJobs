@@ -105,41 +105,24 @@
                               
                             </form>
                         </div>
-                        <div class="relative w-1/2 inline-block text-left mt-6">
-                            <div>
-                                <button type="button" id="categoryBtn" class=" border border-gray-300 bg-white dark:bg-gray-800 shadow-sm flex items-center justify-between w-full rounded-md  px-4 py-2 text-sm font-medium text-gray-700 dark:text-gray-50 hover:bg-gray-50 dark:hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-gray-500" id="options-menu">
-                                   Search by Category
-                                    <svg width="20" height="20" fill="currentColor" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M1408 704q0 26-19 45l-448 448q-19 19-45 19t-45-19l-448-448q-19-19-19-45t19-45 45-19h896q26 0 45 19t19 45z">
-                                        </path>
-                                    </svg>
-                                </button>
-                            </div>
-                            <div id="categoryMenu" class="hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-gray-800 ring-1 ring-black ring-opacity-5">
-                                <div class="py-1 " role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                                    <a href="#" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
-                                        <span class="flex flex-col">
-                                            <span>
-                                                Stripe
-                                            </span>
-                                        </span>
-                                    </a>
-                                    <a href="#" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
-                                        <span class="flex flex-col">
-                                            <span>
-                                                Mastercard
-                                            </span>
-                                        </span>
-                                    </a>
-                                    <a href="#" class="block block px-4 py-2 text-md text-gray-700 hover:bg-gray-100 hover:text-gray-900 dark:text-gray-100 dark:hover:text-white dark:hover:bg-gray-600" role="menuitem">
-                                        <span class="flex flex-col">
-                                            <span>
-                                                Paypal
-                                            </span>
-                                        </span>
-                                    </a>
-                                </div>
-                            </div>
+                        <div class="relative w-2/3 inline-flex text-left mt-3">
+                           
+                                <label  class="block flex-1">
+                                <select  id="select" class="form-select  block w-full py-3 px-4 rounded-l-lg focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
+                                  <option class="text-gray-500">Search by Category</option>
+                                  <option>Software development</option>
+                                  <option>marketing</option>
+                                  <option>sales</option>
+                                </select>
+                              </label>
+                       
+                                    <button id="selectForm" type="button" class="py-2 px-4 bg-indigo-500  text-white rounded-r-lg  transition ease-in duration-200 text-center text-base focus:ring-purple-600  focus:outline-none  focus:ring-2 focus:ring-offset-2 ">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 inline-flex" viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd" />
+                                          </svg>
+                                    </button>
+
+                          
                         </div>
             </div>
       
@@ -150,9 +133,9 @@
     </div>
  
        
-<div class="w-full bg-white p-12">
-        <h3 class="text-3xl font-bold  mb-4"> Some places in: <span class="capitalize" id="place"></span></h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-12" id="main">
+<div class=" max-w-7xl mx-auto px-8 mt-3 w-full bg-white py-8">
+        <h3 class="text-3xl font-bold  mb-4"> Latest Jobs <span class="capitalize" id="place"></span></h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-12" id="main">
           
 
            
@@ -160,28 +143,32 @@
            
           
         </div>
-
+        <div class="max-w-7xl mx-auto px-8 mt-6">
+            <div class="flex" id="pagination">
+                <button onclick="prev()" class="border border-teal-500 text-teal-500 block rounded-sm font-bold py-4 px-6 mr-2 flex items-center hover:bg-teal-500 ">
+                    <svg class="h-5 w-5 mr-2 fill-current" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-49 141 512 512" style="enable-background:new -49 141 512 512;" xml:space="preserve">
+                        <path id="XMLID_10_" d="M438,372H36.355l72.822-72.822c9.763-9.763,9.763-25.592,0-35.355c-9.763-9.764-25.593-9.762-35.355,0 l-115.5,115.5C-46.366,384.01-49,390.369-49,397s2.634,12.989,7.322,17.678l115.5,115.5c9.763,9.762,25.593,9.763,35.355,0 c9.763-9.763,9.763-25.592,0-35.355L36.355,422H438c13.808,0,25-11.193,25-25S451.808,372,438,372z"></path>
+                    </svg>
+                    Previous page
+                </button>
+                <button onclick="next()" class="border border-indigo-500 bg-indigo-500 text-white block rounded-sm font-bold py-4 px-6 ml-2 flex items-center">
+                    Next page
+                    <svg class="h-5 w-5 ml-2 fill-current" clasversion="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                         viewBox="-49 141 512 512" style="enable-background:new -49 141 512 512;" xml:space="preserve">
+                    <path id="XMLID_11_" d="M-24,422h401.645l-72.822,72.822c-9.763,9.763-9.763,25.592,0,35.355c9.763,9.764,25.593,9.762,35.355,0
+                        l115.5-115.5C460.366,409.989,463,403.63,463,397s-2.634-12.989-7.322-17.678l-115.5-115.5c-9.763-9.762-25.593-9.763-35.355,0
+                        c-9.763,9.763-9.763,25.592,0,35.355l72.822,72.822H-24c-13.808,0-25,11.193-25,25S-37.808,422-24,422z"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+      
     </div>
 <!-- component -->
-<div class="flex" id="pagination">
-    <button onclick="prev()" class="border border-teal-500 text-teal-500 block rounded-sm font-bold py-4 px-6 mr-2 flex items-center hover:bg-teal-500 hover:text-white">
-        <svg class="h-5 w-5 mr-2 fill-current" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="-49 141 512 512" style="enable-background:new -49 141 512 512;" xml:space="preserve">
-            <path id="XMLID_10_" d="M438,372H36.355l72.822-72.822c9.763-9.763,9.763-25.592,0-35.355c-9.763-9.764-25.593-9.762-35.355,0 l-115.5,115.5C-46.366,384.01-49,390.369-49,397s2.634,12.989,7.322,17.678l115.5,115.5c9.763,9.762,25.593,9.763,35.355,0 c9.763-9.763,9.763-25.592,0-35.355L36.355,422H438c13.808,0,25-11.193,25-25S451.808,372,438,372z"></path>
-        </svg>
-        Previous page
-    </button>
-    <button onclick="next()" class="border border-indigo-500 bg-indigo-500 text-white block rounded-sm font-bold py-4 px-6 ml-2 flex items-center">
-        Next page
-        <svg class="h-5 w-5 ml-2 fill-current" clasversion="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-             viewBox="-49 141 512 512" style="enable-background:new -49 141 512 512;" xml:space="preserve">
-        <path id="XMLID_11_" d="M-24,422h401.645l-72.822,72.822c-9.763,9.763-9.763,25.592,0,35.355c9.763,9.764,25.593,9.762,35.355,0
-            l115.5-115.5C460.366,409.989,463,403.63,463,397s-2.634-12.989-7.322-17.678l-115.5-115.5c-9.763-9.762-25.593-9.763-35.355,0
-            c-9.763,9.763-9.763,25.592,0,35.355l72.822,72.822H-24c-13.808,0-25,11.193-25,25S-37.808,422-24,422z"/>
-        </svg>
-    </button>
-</div>
+
 
     </main>
+    <div></div>
     <div id="job-popup" class=" hide  justify-center items-center">
         <div id="job-info" class="meal-info   relative  transform transition-all sm:align-middle" role="dialog" aria-modal="true" aria-labelledby="modal-headline">
           </div>

@@ -1,9 +1,12 @@
 const searchUrl = `https://remotive.io/api/remote-jobs?search=`
-
+const categoryUrl = `https://remotive.io/api/remote-jobs?category=`
+const categoriesUrl = `https://remotive.io/api/remote-jobs/categories`
 
 const main = document.getElementById('main');
 const pagination = document.getElementById('pagination');
 const form = document.getElementById('form');
+const selectform = document.getElementById('selectForm');
+const select = document.getElementById('select');
 const search = document.getElementById('search');
 const jobPopup = document.getElementById('job-popup');
 const jobInfoEl =document.getElementById('job-info')
@@ -13,11 +16,17 @@ const categoryMenu = document.getElementById('categoryMenu')
 
 getJobs('json.json');
 
+
+
 let jobs = []
-let jobsPerPage = 10;
+let jobsPerPage = 12;
 let currentPage = 1;
 
-
+async function getCategories(url) {
+    const resp = await fetch(url);
+    const respData = await resp.json();
+    console.log(" category:" + respData.jobs);
+}
 
 async function getJobs(url){
     const resp = await fetch(url);
@@ -27,7 +36,11 @@ showJobs(respData.jobs)
 jobs = respData.jobs
 // document.write(respData.jobs)
 }
+function showCategories(categories) {
+    categories.map(catgory => {
 
+    })
+}
 
 function showJobs(jobs) {
 
@@ -95,11 +108,11 @@ function changeData(index) {
         JobEl.classList.add('jobCard')
              
          JobEl.innerHTML = `
-         <div id="" class="card overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80 cursor-pointer m-auto">
-         <a href="#" class="w-full block h-full">
+         <div id="" class="card overflow-hidden shadow-lg rounded-lg h-90 w-60 md:w-80  m-auto">
+         <div class="w-full block h-full">
              <div class="bg-white dark:bg-gray-800 w-full p-4">
                
-                 <p class="text-gray-800 capitalize dark:text-white text-xl font-medium mb-2">
+                 <p class="cursor-pointer text-gray-800 title capitalize dark:text-white text-xl font-medium mb-2">
                      ${job.title}
                  </p>
                  <p class="text-gray-500 font-semibold dark:text-gray-300  text-md">
@@ -116,17 +129,27 @@ function changeData(index) {
                      <div class="flex flex-col justify-between  text-sm">
                          <p class="text-gray-800 dark:text-white">
                          </p>
-                         <p class="text-gray-400 dark:text-gray-300">
-                         ${job.publication_date}
-                         
+                         <p class="text-gray-400 dark:text-gray-300 date">
+                        
                          </p>
+                        
+ 
                      </div>
                  </div>
              </div>
-         </a>
+         </div>
      </div>
          
          `;
+         
+    const getInfo = JobEl.querySelector('.card .title');
+
+    getInfo.addEventListener('click', () =>{
+        showJobDetails(job);
+
+        console.log('show info');
+    })
+      
     main.appendChild(JobEl);
     });
     currentPage = index
@@ -345,6 +368,15 @@ form.addEventListener('submit', (e) =>{
       
     }
 })
-categoryBtn.addEventListener('click', () =>{
-    categoryMenu.classList.toggle('hidden')
+
+selectform.addEventListener('click', () =>{
+   
+    const categoryTerm = select.value;
+    console.log(categoryTerm);
+if (categoryTerm) {
+    getJobs(categoryUrl + categoryTerm);
+}
+
 })
+
+getCategories(categoriesUrl);
