@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+
+.meal-infoContainer{
+    background-color: rgba(0, 0, 0, 0.5)
+}
+
+.hide{
+   display: none;
+}
+
+
+@tailwind utilities;
+
