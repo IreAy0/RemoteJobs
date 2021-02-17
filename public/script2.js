@@ -22,11 +22,6 @@ let jobs = []
 let jobsPerPage = 12;
 let currentPage = 1;
 
-async function getCategories(url) {
-    const resp = await fetch(url);
-    const respData = await resp.json();
-    console.log(" category:" + respData.jobs);
-}
 
 async function getJobs(url){
     const resp = await fetch(url);
@@ -36,9 +31,19 @@ showJobs(respData.jobs)
 jobs = respData.jobs
 // document.write(respData.jobs)
 }
-function showCategories(categories) {
-    categories.map(catgory => {
+async function getCategories(url) {
+    const response = await fetch(url);
+    const respData = await response.json();
+    console.log( respData.jobs);
+    showCategories(respData.jobs)
+}
 
+function showCategories(categories) {
+    categories.map(category => {
+        const categoryEl = document.createElement('option');
+        categoryEl.setAttribute('value', category.name);
+        categoryEl.innerText = category.name
+        select.appendChild(categoryEl);
     })
 }
 
@@ -358,25 +363,27 @@ jobPopup.classList.remove('hide')
 bodyEl.classList.add('hide')
   }
 
-form.addEventListener('submit', (e) =>{
-    e.preventDefault();
+  selectform.addEventListener('click', () =>{
+    
     const searchTerm = search.value;
-
+    const categoryTerm = select.value;
     if (searchTerm) {
-        getJobs(searchUrl + searchTerm)
-        search.value = '';
+        getJobs(searchUrl + searchTerm);
+        
       
+    } else if (categoryTerm) {
+        getJobs(categoryUrl + categoryTerm);
     }
 })
 
-selectform.addEventListener('click', () =>{
+// selectform.addEventListener('click', () =>{
    
-    const categoryTerm = select.value;
-    console.log(categoryTerm);
-if (categoryTerm) {
-    getJobs(categoryUrl + categoryTerm);
-}
+//     const categoryTerm = select.value;
+//     console.log(categoryTerm);
+// if (categoryTerm) {
+//     getJobs(categoryUrl + categoryTerm);
+// }
 
-})
+// })
 
-getCategories(categoriesUrl);
+getCategories('category.json');
